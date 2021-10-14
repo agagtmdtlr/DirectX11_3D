@@ -223,6 +223,33 @@ struct VertexTextureNormalTangentBlend
 
 //=======================================================================================
 
+struct VertexTextureNormalTangentTextureID
+{
+	VertexTextureNormalTangentTextureID()
+		: Position(0, 0, 0)
+		, Uv(0, 0)
+		, Normal(0, 0, 0)
+		, Tangent(0, 0, 0)
+	{}
+
+	VertexTextureNormalTangentTextureID(float px, float py, float pz, float u, float v, float nx, float ny, float nz, float tx, float ty, float tz)
+	{
+		Position = Vector3(px, py, pz);
+		Uv = Vector2(u, v);
+		Normal = Vector3(nx, ny, nz);
+		Tangent = Vector3(tx, ty, tz);
+	}
+
+	Vector3	Position;
+	Vector2	Uv;
+	Vector3	Normal;
+	Vector3 Tangent;
+	Vector4 TextureID; // albedo, metalic, rouhness , normal
+	Vector4 TextureID2; // height,
+};
+
+//=======================================================================================
+
 struct VertexTextureNormalTangentBlendTextureID
 {
 	VertexTextureNormalTangentBlendTextureID()
