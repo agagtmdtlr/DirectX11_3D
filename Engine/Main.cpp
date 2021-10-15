@@ -8,7 +8,6 @@
 
 void Main::Initialize()
 {
-	
 }
 
 void Main::Ready()

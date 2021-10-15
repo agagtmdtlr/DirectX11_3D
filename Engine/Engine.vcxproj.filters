@@ -3,9 +3,23 @@
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="IMesh.cpp">
+      <Filter>Models</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Main.h" />
+    <ClInclude Include="IMesh.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Models">
+      <UniqueIdentifier>{f601c74f-69cb-481b-84b6-169847de01f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sequneces">
+      <UniqueIdentifier>{2032c09d-0b41-49c1-83d5-4f5aafc3c9c0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

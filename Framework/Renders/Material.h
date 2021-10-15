@@ -3,6 +3,15 @@
 class Material
 {
 public:
+	struct MaterialResource
+	{
+		vector<wstring> TextureNames;
+		ComPtr<ID3D11Texture2D> Textures;
+		ID3DX11EffectShaderResourceVariable* EffectSRV;
+		UINT TextureCounts;
+	};
+
+public:
 	Material();
 	Material(Shader* shader);
 	~Material();
@@ -12,51 +21,26 @@ public:
 
 	void CopyFrom(Material* material);
 
-
 	void Name(wstring val) { name = val; }
 	wstring Name() { return name; }
 
-	Color& Ambient() { return colorDesc.Ambient; }
-	void Ambient(Color& color);
-	void Ambient(float r, float g, float b, float a = 1.0f);
-
-	Color& Diffuse() { return colorDesc.Diffuse; }
-	void Diffuse(Color& color);
-	void Diffuse(float r, float g, float b, float a = 1.0f);
-
-	Color& Specular() { return colorDesc.Specular; }
-	void Specular(Color& color);
-	void Specular(float r, float g, float b, float a = 1.0f);
-
-	Color& Emissive() { return colorDesc.Emissive; }
-	void Emissive(Color& color);
-	void Emissive(float r, float g, float b, float a = 1.0f);
-
-
-	Texture* DiffuseMap() { return diffuseMap; }
-	void DiffuseMap(string file);
-	void DiffuseMap(wstring file);
-
-	Texture* SpecularMap() { return specularMap; }
-	void SpecularMap(string file);
-	void SpecularMap(wstring file);
-
-	Texture* NormalMap() { return normalMap; }
-	void NormalMap(string file);
-	void NormalMap(wstring file);
 
 	void Render();
 
 private:
 	void Initialize();
 
-private:
-	struct ColorDesc
+private:	
+
+	struct MaterialDesc
 	{
-		Color Ambient = Color(0, 0, 0, 1);
-		Color Diffuse = Color(1, 1, 1, 1);
-		Color Specular = Color(0, 0, 0, 1);
-		Color Emissive = Color(0, 0, 0, 1);
+		Color Albedo = { 1,1,1,1 };
+		Color Metallic = { 0, 0, 0, 0 };
+		Color Roughness = { 0, 0, 0, 0 };
+		Color Normal = { 0, 0, 0, 0 };
+		Color AO = { 0, 0, 0, 0 };
+		Color Height = { 0, 0, 0, 0 };
+
 	} colorDesc;
 
 private:
@@ -64,14 +48,4 @@ private:
 
 	wstring name;
 
-	Texture* diffuseMap;
-	Texture* specularMap;
-	Texture* normalMap;
-
-	ConstantBuffer* buffer;
-	ID3DX11EffectConstantBuffer* sBuffer;
-
-	ID3DX11EffectShaderResourceVariable* sDiffuseMap;
-	ID3DX11EffectShaderResourceVariable* sSpecularMap;
-	ID3DX11EffectShaderResourceVariable* sNormalMap;
 };
