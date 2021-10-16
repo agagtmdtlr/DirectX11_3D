@@ -5,12 +5,18 @@ class Material
 public:
 	struct MaterialResource
 	{
-		vector<wstring> TextureNames;
-		ComPtr<ID3D11Texture2D> Textures;
+		unique_ptr<Texture> Texture;
 		ID3DX11EffectShaderResourceVariable* EffectSRV;
-		UINT TextureCounts;
 	};
-
+	struct MaterialResourceDesc
+	{
+		bool bAlbedo = false;
+		bool bMetallic = false;
+		bool bRoughness = false;
+		bool bNormal = false;
+		bool bAO = false;
+		bool bHeight = false;
+	};
 public:
 	Material();
 	Material(Shader* shader);
@@ -21,31 +27,25 @@ public:
 
 	void CopyFrom(Material* material);
 
-	void Name(wstring val) { name = val; }
-	wstring Name() { return name; }
-
+	void Name(wstring val) { mName = val; }
+	wstring Name() { return mName; }
 
 	void Render();
 
 private:
 	void Initialize();
 
-private:	
-
-	struct MaterialDesc
-	{
-		Color Albedo = { 1,1,1,1 };
-		Color Metallic = { 0, 0, 0, 0 };
-		Color Roughness = { 0, 0, 0, 0 };
-		Color Normal = { 0, 0, 0, 0 };
-		Color AO = { 0, 0, 0, 0 };
-		Color Height = { 0, 0, 0, 0 };
-
-	} colorDesc;
-
 private:
 	Shader* shader = NULL;
+	wstring mName;
+	MaterialResourceDesc mResourceDesc;
+	unique_ptr<ConstantBuffer> resourceDescCBuffer;
 
-	wstring name;
-
+	MaterialResource mAlbedo;
+	MaterialResource mMetallic;
+	MaterialResource mRoughness;
+	MaterialResource mNormal;
+	MaterialResource mAO;
+	MaterialResource mHeight;
+private:
 };

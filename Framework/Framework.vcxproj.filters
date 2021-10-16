@@ -104,6 +104,9 @@
     <ClInclude Include="Renders\VertexLayouts.h">
       <Filter>Renders</Filter>
     </ClInclude>
+    <ClInclude Include="IMesh.h">
+      <Filter>Meshes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework.cpp" />
@@ -203,6 +206,9 @@
     <ClCompile Include="Renders\Buffers.cpp">
       <Filter>Renders</Filter>
     </ClCompile>
+    <ClCompile Include="IMesh.cpp">
+      <Filter>Meshes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Systems">
@@ -219,6 +225,9 @@
     </Filter>
     <Filter Include="Viewer">
       <UniqueIdentifier>{ea8dd794-1105-498a-bbb7-cbab2cc51e27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Meshes">
+      <UniqueIdentifier>{24d131a7-cad6-42c3-bc4d-d95e8878c1f8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

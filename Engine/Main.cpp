@@ -2,12 +2,13 @@
 #include "Main.h"
 #include "Systems/Window.h"
 
-
+#include "DemoExecute.h"
 
 
 
 void Main::Initialize()
 {
+	executes.push_back(new DemoExecute());
 }
 
 void Main::Ready()
