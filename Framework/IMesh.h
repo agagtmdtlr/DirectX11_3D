@@ -1,10 +1,5 @@
 #pragma once
 
-enum class eMeshRenderResult
-{
-	Success,
-	fault
-};
 
 class IMesh
 {
@@ -23,9 +18,7 @@ private:
 	UINT mPass;
 
 	unique_ptr<VertexBuffer> mVertexBuffer;
-	UINT mVertexCount;
 	unique_ptr<VertexBuffer> mIndexBuffer;
-	UINT mIndexCount;
 
 	
 };

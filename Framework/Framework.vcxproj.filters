@@ -107,6 +107,9 @@
     <ClInclude Include="IMesh.h">
       <Filter>Meshes</Filter>
     </ClInclude>
+    <ClInclude Include="AssertMessage.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework.cpp" />
@@ -208,6 +211,9 @@
     </ClCompile>
     <ClCompile Include="IMesh.cpp">
       <Filter>Meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="AssertMessage.cpp">
+      <Filter>Utilities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

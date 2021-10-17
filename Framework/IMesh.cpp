@@ -10,6 +10,9 @@ void IMesh::Initialize()
 {
 	CreateResource();
 }
+void IMesh::Update()
+{
+}
 // build assert class
 void IMesh::Render()
 {
@@ -20,13 +23,15 @@ void IMesh::Render()
 
 	if (mVertexBuffer != nullptr)
 	{
+		mVertexBuffer->Render();
 		if (mIndexBuffer != nullptr)
 		{
-			mShader->DrawIndexed(mTechnique,mPass,mIndexCount);
+			mIndexBuffer->Render();
+			mShader->DrawIndexed(mTechnique,mPass,mIndexBuffer->Count());
 		}
 		else
 		{
-			mShader->Draw(mTechnique, mPass, mVertexCount);
+			mShader->Draw(mTechnique, mPass, mVertexBuffer->Count());
 		}
 	}
 	else
