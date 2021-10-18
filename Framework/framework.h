@@ -1,7 +1,7 @@
 #pragma once
 
 #include <Windows.h>
-#include <assert.h>
+#include <cassert>
 // STL
 #include <iostream>
 #include <algorithm>
@@ -14,9 +14,9 @@
 #include <set>
 #include <functional>
 #include <iterator>
-#include <thread>
-#include <mutex>
-#include <wrl/client.h>
+#include <thread> // paralle instruction
+#include <mutex> // thread race condition
+#include <wrl/client.h> // ComPtr
 
 //Direct3D
 #include <dxgi1_2.h>
@@ -48,7 +48,7 @@
 #pragma comment(lib, "directxtex.lib")
 
 using namespace std;
-using namespace Microsoft::WRL;
+using namespace Microsoft::WRL; // included ComPtr namespace
 
 #define SafeRelease(p){ if(p){ (p)->Release(); (p) = NULL; } }
 #define SafeDelete(p){ if(p){ delete (p); (p) = NULL; } }
@@ -66,6 +66,31 @@ using Quaternion = D3DXQUATERNION;
 
 #define Check(hr) { assert(SUCCEEDED(hr)); }
 #define Super __super
+
+#define __FILENAME__ ((strrchr(__FILE__, '\\') ? strrchr(__FILE__, '\\') + 1 : __FILE__))
+
+#define my_assert(message) \
+{ \
+	std::wstring str = (L"Asseration in File : ") ;\
+	str += String::ToWString(__FILENAME__);\
+	str += L" at : ";\
+	str += std::to_wstring(__LINE__);\
+	str += L"\ncause is ";\
+	str += message;\
+	str += L"in \n";\
+int msgBoxID = MessageBox(D3D::GetHandle(),str.c_str(),L"error", MB_ICONERROR | MB_ABORTRETRYIGNORE);\
+	switch(msgBoxID)\
+	{\
+	case IDABORT : \
+		std::abort();\
+		break;\
+	default : \
+		break;\
+	}\
+}
+
+
+
 
 
 #include "Systems/IExecute.h"
@@ -103,5 +128,5 @@ using Quaternion = D3DXQUATERNION;
 #include "Utilities/Math.h"
 #include "Utilities/String.h"
 #include "Utilities/Path.h"
-
+#include "Utilities/AssertMessage.h"
 

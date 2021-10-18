@@ -2,15 +2,38 @@
 
 class PerFrame
 {
+
+private: // static Data for singleton pattern
+	static UINT instanceCount;
+
+	struct Desc;
+	struct LightDesc;
+	struct PointLightDesc;
+	struct SpotLightDesc;
+	struct FogDesc;
+	// update decription data for shader
+	static LightDesc sLightDesc;
+	static PointLightDesc sPointLightDesc;
+	static SpotLightDesc sSpotLightDesc;
+	static FogDesc sFogDesc;
+	// bind piple line buffer resource;
+	static ConstantBuffer* lightBuffer;
+	static ConstantBuffer* pointLightBuffer;
+	static ConstantBuffer* spotLightBuffer;
+	static ConstantBuffer* fogBuffer;
+
+private: // static method for singleton pattern
+	static ConstantBuffer* GetLightBuffer();
+	static ConstantBuffer* GetPointLightBuffer();
+	static ConstantBuffer* GetSpotLightBuffer();
+	static ConstantBuffer* GetFogBuffer();
+
 public:
 	PerFrame(Shader* shader);
 	~PerFrame();
 
 	void Culling(Plane* planes) { memcpy(desc.Culling, planes, sizeof(Plane) * 4); }
 	void Clipping(Plane& plane) { desc.Clipping = plane; }
-
-private:	
-	static UINT instanceCount;
 
 public:
 	void Update();
@@ -42,7 +65,6 @@ private:
 		Vector3 Position;
 		float Padding2;
 	};
-
 	struct PointLightDesc
 	{
 		UINT Count = 0;
@@ -50,7 +72,6 @@ private:
 
 		PointLight Lights[MAX_POINT_LIGHTS];
 	};
-
 	struct SpotLightDesc
 	{
 		UINT Count = 0;
@@ -58,8 +79,6 @@ private:
 
 		SpotLight Lights[MAX_SPOT_LIGHTS];
 	};
-
-
 	struct FogDesc
 	{
 		Color FogColor;
@@ -67,23 +86,6 @@ private:
 		float FogDensity;
 		UINT FogType;
 	};
-
-	static ConstantBuffer* GetLightBuffer();
-	static ConstantBuffer* GetPointLightBuffer();
-	static ConstantBuffer* GetSpotLightBuffer();
-	static ConstantBuffer* GetFogBuffer();
-
-
-	static LightDesc sLightDesc;
-	static PointLightDesc sPointLightDesc;
-	static SpotLightDesc sSpotLightDesc;
-	static FogDesc sFogDesc;
-
-	static ConstantBuffer* lightBuffer;
-	static ConstantBuffer* pointLightBuffer;
-	static ConstantBuffer* spotLightBuffer;
-	static ConstantBuffer* fogBuffer;
-
 private:
 	Shader* shader;
 

@@ -14,3 +14,14 @@ void AssertMessage(const bool& bFlag, wstring message)
 		assert(bFlag);
 	}	
 }
+
+void AssertMessage(const HRESULT & hr, string message)
+{
+	AssertMessage(hr, String::ToWString(message));
+}
+
+void AssertMessage(const HRESULT & hr, wstring message)
+{
+	bool bFlag = SUCCEEDED(hr);
+	AssertMessage(bFlag, message);
+}

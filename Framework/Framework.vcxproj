@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AssertMessage.h" />
     <ClInclude Include="Framework.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
@@ -43,6 +42,7 @@
     <ClInclude Include="Systems\Mouse.h" />
     <ClInclude Include="Systems\Time.h" />
     <ClInclude Include="Systems\Window.h" />
+    <ClInclude Include="Utilities\AssertMessage.h" />
     <ClInclude Include="Utilities\BinaryFile.h" />
     <ClInclude Include="Utilities\Math.h" />
     <ClInclude Include="Utilities\Path.h" />
@@ -60,7 +60,6 @@
     <ClInclude Include="Viewer\Viewport.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AssertMessage.cpp" />
     <ClCompile Include="Framework.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
@@ -82,6 +81,7 @@
     <ClCompile Include="Systems\Mouse.cpp" />
     <ClCompile Include="Systems\Time.cpp" />
     <ClCompile Include="Systems\Window.cpp" />
+    <ClCompile Include="Utilities\AssertMessage.cpp" />
     <ClCompile Include="Utilities\BinaryFile.cpp" />
     <ClCompile Include="Utilities\Math.cpp" />
     <ClCompile Include="Utilities\Path.cpp" />

@@ -17,7 +17,7 @@ BinaryWriter::~BinaryWriter()
 void BinaryWriter::Open(wstring filePath, UINT openOption)
 {
 	assert(filePath.length() > 0);
-
+	
 	fileHandle = CreateFile
 	(
 		filePath.c_str()

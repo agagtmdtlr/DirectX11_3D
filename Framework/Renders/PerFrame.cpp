@@ -17,6 +17,10 @@ ConstantBuffer* PerFrame::fogBuffer = NULL;
 PerFrame::PerFrame(Shader * shader)
 	: shader(shader)
 {
+	if (shader == nullptr)
+	{
+		my_assert(L"shader NA Error");
+	}
 	instanceCount++;
 
 	buffer = new ConstantBuffer(&desc, sizeof(Desc));

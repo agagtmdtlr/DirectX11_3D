@@ -7,6 +7,9 @@ DemoExecute::DemoExecute()
 	info.Width = 1024;
 	info.Height = 1024;
 	texture = new Texture(L"White_ACC_Base_Color.png", &info);
+
+
+
 }
 
 void DemoExecute::Initialize()

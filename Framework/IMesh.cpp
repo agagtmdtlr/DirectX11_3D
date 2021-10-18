@@ -2,13 +2,21 @@
 #include "IMesh.h"
 
 IMesh::IMesh(Shader * shader)
-	:mShader(shader)
+	:
+	mShader(shader)
+	, mTechnique(0)
+	, mPass(0)
+	, mPerFrame(make_unique<PerFrame>(shader))
 {
+	if (mShader == nullptr)
+	{
+		// assert 
+		my_assert(L"shader NA Error");
+	}
 }
 
 void IMesh::Initialize()
 {
-	CreateResource();
 }
 void IMesh::Update()
 {
@@ -16,11 +24,7 @@ void IMesh::Update()
 // build assert class
 void IMesh::Render()
 {
-	if (mShader == nullptr)
-	{
-		// assert
-	}
-
+	
 	if (mVertexBuffer != nullptr)
 	{
 		mVertexBuffer->Render();
@@ -37,9 +41,6 @@ void IMesh::Render()
 	else
 	{
 		// assert no buffer
-	}
-
-	
-
-	
+		my_assert(L"vertexbuffer NA Error");
+	}	
 }
