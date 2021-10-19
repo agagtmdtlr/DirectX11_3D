@@ -69,25 +69,27 @@ using Quaternion = D3DXQUATERNION;
 
 #define __FILENAME__ ((strrchr(__FILE__, '\\') ? strrchr(__FILE__, '\\') + 1 : __FILE__))
 
-#define my_assert(message) \
+#define my_assert(message , expression) \
 { \
-	std::wstring str = (L"Asseration in File : ") ;\
+	std::wstring str = L"Asseration in File : ";\
 	str += String::ToWString(__FILENAME__);\
 	str += L" at : ";\
 	str += std::to_wstring(__LINE__);\
-	str += L"\ncause is ";\
-	str += message;\
-	str += L"in \n";\
-int msgBoxID = MessageBox(D3D::GetHandle(),str.c_str(),L"error", MB_ICONERROR | MB_ABORTRETRYIGNORE);\
-	switch(msgBoxID)\
-	{\
-	case IDABORT : \
-		std::abort();\
-		break;\
-	default : \
-		break;\
-	}\
-}
+	str += L"\ncause is "; \
+	str += message; \
+	if(!(bool)(expression)) \
+	{ \
+		int msgBoxID = MessageBox(D3D::GetHandle(),str.c_str(),L"error", MB_ICONERROR | MB_ABORTRETRYIGNORE); \
+		switch(msgBoxID) \
+		{\
+			case IDABORT : \
+				std::abort();\
+				break;\
+			default: \
+				break; \
+		} \
+	} } 
+// my_assert
 
 
 

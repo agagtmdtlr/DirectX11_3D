@@ -22,7 +22,8 @@
     <ClInclude Include="Framework.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
-    <ClInclude Include="IMesh.h" />
+    <ClInclude Include="Meshes\IMesh.h" />
+    <ClInclude Include="Meshes\Skeleton.h" />
     <ClInclude Include="Renders\Buffers.h" />
     <ClInclude Include="Renders\Context.h" />
     <ClInclude Include="Renders\DebugLine.h" />
@@ -63,7 +64,8 @@
     <ClCompile Include="Framework.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="IMesh.cpp" />
+    <ClCompile Include="Meshes\IMesh.cpp" />
+    <ClCompile Include="Meshes\Skeleton.cpp" />
     <ClCompile Include="Renders\Buffers.cpp" />
     <ClCompile Include="Renders\Context.cpp" />
     <ClCompile Include="Renders\DebugLine.cpp" />

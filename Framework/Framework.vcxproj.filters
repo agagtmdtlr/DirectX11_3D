@@ -104,11 +104,14 @@
     <ClInclude Include="Renders\VertexLayouts.h">
       <Filter>Renders</Filter>
     </ClInclude>
-    <ClInclude Include="IMesh.h">
-      <Filter>Meshes</Filter>
-    </ClInclude>
     <ClInclude Include="Utilities\AssertMessage.h">
       <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Meshes\IMesh.h">
+      <Filter>Meshes</Filter>
+    </ClInclude>
+    <ClInclude Include="Meshes\Skeleton.h">
+      <Filter>Meshes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -209,11 +212,14 @@
     <ClCompile Include="Renders\Buffers.cpp">
       <Filter>Renders</Filter>
     </ClCompile>
-    <ClCompile Include="IMesh.cpp">
-      <Filter>Meshes</Filter>
-    </ClCompile>
     <ClCompile Include="Utilities\AssertMessage.cpp">
       <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Meshes\IMesh.cpp">
+      <Filter>Meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="Meshes\Skeleton.cpp">
+      <Filter>Meshes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
