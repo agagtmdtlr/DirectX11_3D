@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DDSConverter.cpp" />
     <ClCompile Include="DemoExecute.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -26,6 +27,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DDSConverter.h" />
     <ClInclude Include="DemoExecute.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="stdafx.h" />

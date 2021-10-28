@@ -4,15 +4,24 @@
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="DemoExecute.cpp" />
+    <ClCompile Include="DDSConverter.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="DemoExecute.h" />
+    <ClInclude Include="DDSConverter.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Sequneces">
       <UniqueIdentifier>{2032c09d-0b41-49c1-83d5-4f5aafc3c9c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{1f5a677e-4886-41d9-a80d-e223e05a6f7d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

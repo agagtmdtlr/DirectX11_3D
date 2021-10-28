@@ -3,17 +3,26 @@
 #include "Systems/Window.h"
 
 #include "DemoExecute.h"
-
+#include "DDSConverter.h"
 
 
 void Main::Initialize()
 {
 	executes.push_back(new DemoExecute());
+	executes.push_back(new DDSConverter());
+
+	for (IExecute* exe : executes)
+	{
+		exe->Initialize();
+	}
 }
 
 void Main::Ready()
 {
-
+	for (IExecute* exe : executes)
+	{
+		exe->Ready();
+	}
 }
 
 void Main::Destroy()
