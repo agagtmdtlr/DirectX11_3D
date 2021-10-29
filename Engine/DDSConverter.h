@@ -17,7 +17,18 @@ public:
 	virtual void ResizeScreen() override;
 
 private:
+	unique_ptr<Shader> shader;
+	unique_ptr<VertexBuffer> vertexBuffer;
+
 	ComPtr<ID3D11Texture2D> loadTexture;
+	ComPtr<ID3D11ShaderResourceView> srv;
 	ComPtr<ID3D11Texture2D> saveTexture;
+
+	DirectX::TexMetadata metaData;
+
+	DirectX::ScratchImage srcImage;
+	DirectX::ScratchImage compressedImage;
+	DirectX::ScratchImage lodImage;
+
 };
 

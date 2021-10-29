@@ -10,6 +10,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Engine.vcx
 		{23535107-1F09-438B-A383-041346044DE4} = {23535107-1F09-438B-A383-041346044DE4}
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Shaders", "_Shaders", "{22BECD47-7701-4626-BF0F-C07574F88501}"
+	ProjectSection(SolutionItems) = preProject
+		_Shaders\ddsTest.fx = _Shaders\ddsTest.fx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
