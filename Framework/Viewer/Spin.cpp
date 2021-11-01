@@ -54,7 +54,7 @@ void Spin::Update()
 		Up(u);
 		Right(r);
 
-		distance += -mouse.z * 2.0 * Time::Delta();
+		distance += -mouse.z * 2.0f * Time::Delta();
 		Math::Clamp(distance, 5.0f, 50.0f);
 		P = center + (-f * distance);
 		Position(P); // update poisiton and view matrix by eye and look;

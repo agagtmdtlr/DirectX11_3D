@@ -2,7 +2,7 @@
 #include "Render2D.h"
 
 Render2D::Render2D()
-	: Renderer(L"62_Render2D.fx")
+	: Renderer(L"Render2D.fx")
 {
 	// -1 뒤에서 이미지를 바라보기
 	D3DXMatrixLookAtLH(&desc.View, &Vector3(0, 0, -1), &Vector3(0, 0, 0), &Vector3(0, 1, 0));
@@ -66,4 +66,38 @@ void Render2D::SRV2(ID3D11ShaderResourceView * srv)
 	else
 		Pass(1);
 	sDiffuseMap2->SetResource(srv);
+}
+
+Render2DMipMap::Render2DMipMap(float level)
+	:Render2D()
+	, mCurLevel(0)
+	, mMaxLevel(level - 1)
+{
+	Pass(1); // mip map render pass;
+	mCBuffer = make_unique<ConstantBuffer>(&mMipMapDesc, sizeof(MipMapDesc));
+	D3D11_SAMPLER_DESC desc;
+	ZeroMemory(&desc, sizeof(D3D11_SAMPLER_DESC));
+	desc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
+	desc.AddressU = D3D11_TEXTURE_ADDRESS_CLAMP;
+	desc.AddressV = D3D11_TEXTURE_ADDRESS_CLAMP;
+	desc.MinLOD = 0;
+	desc.MaxLOD = mMaxLevel;
+
+	D3D::GetDevice()->CreateSamplerState()
+}
+
+Render2DMipMap::~Render2DMipMap()
+{
+}
+
+void Render2DMipMap::Update()
+{
+	Super::Update();
+	ImGui::SliderFloat("MipLevel", &mCurLevel, 0.0f, mMaxLevel);
+}
+
+void Render2DMipMap::Render()
+{
+	mCBuffer->Render();
+	Super::Render();
 }

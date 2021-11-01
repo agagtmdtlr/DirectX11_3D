@@ -12,7 +12,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Engine.vcx
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Shaders", "_Shaders", "{22BECD47-7701-4626-BF0F-C07574F88501}"
 	ProjectSection(SolutionItems) = preProject
+		_Shaders\00_Global.fx = _Shaders\00_Global.fx
+		_Shaders\00_Light.fx = _Shaders\00_Light.fx
+		_Shaders\20_DebugLine.fx = _Shaders\20_DebugLine.fx
+		_Shaders\20_DebugLine.fxo = _Shaders\20_DebugLine.fxo
 		_Shaders\ddsTest.fx = _Shaders\ddsTest.fx
+		_Shaders\ddsTest.fxo = _Shaders\ddsTest.fxo
+		_Shaders\Render2D.fx = _Shaders\Render2D.fx
+		_Shaders\ShaderCompiler.exe = _Shaders\ShaderCompiler.exe
 	EndProjectSection
 EndProject
 Global

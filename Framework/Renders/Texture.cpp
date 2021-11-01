@@ -356,7 +356,7 @@ void Texture::SaveFile(wstring file, ID3D11Texture2D * src)
 	ZeroMemory(&destDesc, sizeof(D3D11_TEXTURE2D_DESC));
 	destDesc.Width = srcDesc.Width;
 	destDesc.Height = srcDesc.Height;
-	destDesc.MipLevels = 1;
+	destDesc.MipLevels = srcDesc.MipLevels; // mip level
 	destDesc.ArraySize = 1;
 	destDesc.Format = srcDesc.Format;
 	destDesc.SampleDesc = srcDesc.SampleDesc;

@@ -8,7 +8,7 @@ DemoExecute::DemoExecute()
 	info.Height = 1024;
 	texture = new Texture(L"White_ACC_Base_Color.png", &info);
 
-	my_assert(L"hello" , false);
+	//my_assert(L"hello" , false);
 }
 
 void DemoExecute::Initialize()

@@ -20,7 +20,11 @@ private:
 	unique_ptr<Shader> shader;
 	unique_ptr<VertexBuffer> vertexBuffer;
 
+	unique_ptr<Render2D> debugRT;
+	unique_ptr<Render2D> debugRT2;
+
 	ComPtr<ID3D11Texture2D> loadTexture;
+	ComPtr<ID3D11ShaderResourceView> srcSRV;
 	ComPtr<ID3D11ShaderResourceView> srv;
 	ComPtr<ID3D11Texture2D> saveTexture;
 
